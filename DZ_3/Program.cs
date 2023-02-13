@@ -1,29 +1,16 @@
-﻿// Написать программу, которая принимает на вход число и выдает количество цифр в числе
-Console.WriteLine(CalculateSumOfDigits(ReadInt("number")));
+﻿//Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
-int ReadInt(string argument)
+int lenArray = ReadInt("Введите длину массива: ");
+
+int[] randomArray = new int[lenArray];
+for (int i = 0; i < randomArray.Length; i++)
 {
-    Console.Write($"Input {argument} ");
-    int number;
-
-    while (!int.TryParse(Console.ReadLine(), out number))
-    {
-        Console.WriteLine("It's not an int");
-    }
-
-    return number;
+    randomArray[i] = new Random().Next(1,9);
+    Console.Write(randomArray[i] + " ");
 }
 
-int CalculateSumOfDigits(int number)
+int ReadInt(string message)
 {
-    int sum = 0;
-    string s = number.ToString();
-
-
-    for (int i = 0; i < s.Length; i++)
-    {
-        sum ++;
-    }
-
-    return sum;
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
 }
